@@ -34,6 +34,15 @@ public class EventLog {
     @Column(name = "parent_uuid")
     private String parentUuid;
 
+    @Column(name = "province")
+    private String province;
+
+    @Column(name = "district")
+    private String district;
+
+    @Column(name = "facility")
+    private String facility;
+
     public EventLog(String uuid, Date timestamp, String object, String category, String filter, String parentUuid) {
         this.uuid = uuid;
         this.timestamp = timestamp;
@@ -41,6 +50,18 @@ public class EventLog {
         this.category = category;
         this.filter = filter;
         this.parentUuid = parentUuid;
+    }
+
+    public EventLog(String uuid, Date timestamp, String object, String category, String filter, String parentUuid, String province, String district, String facility) {
+        this.uuid = uuid;
+        this.timestamp = timestamp;
+        this.object = object;
+        this.category = category;
+        this.filter = filter;
+        this.parentUuid = parentUuid;
+        this.province = province;
+        this.district = district;
+        this.facility = facility;
     }
 
     public EventLog() {

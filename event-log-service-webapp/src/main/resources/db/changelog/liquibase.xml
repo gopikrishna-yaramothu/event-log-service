@@ -54,5 +54,19 @@
            update event_log set parent_uuid = uuid;
         </sql>
     </changeSet>
-
+    <changeSet id="202010291112" author="Gopi / Shriram">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists columnName="province" tableName="event_log"/>
+                <columnExists columnName="district" tableName="event_log"/>
+                <columnExists columnName="facility" tableName="event_log"/>
+            </not>
+        </preConditions>
+        <comment>Adding Province, District and Facility in event_log table</comment>
+        <sql>
+            ALTER TABLE event_log ADD COLUMN province varchar(255);
+            ALTER TABLE event_log ADD COLUMN district varchar(255);
+            ALTER TABLE event_log ADD COLUMN facility varchar(255);
+        </sql>
+    </changeSet>
 </databaseChangeLog>
