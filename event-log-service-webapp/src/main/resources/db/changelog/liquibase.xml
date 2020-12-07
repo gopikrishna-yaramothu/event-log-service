@@ -54,33 +54,4 @@
            update event_log set parent_uuid = uuid;
         </sql>
     </changeSet>
-    <changeSet id="202011051522" author="Gopi / Shriram">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <columnExists columnName="filter1" tableName="event_log"/>
-                <columnExists columnName="filter2" tableName="event_log"/>
-                <columnExists columnName="filter3" tableName="event_log"/>
-                <columnExists columnName="filter4" tableName="event_log"/>
-                <columnExists columnName="filter5" tableName="event_log"/>
-                <columnExists columnName="filter6" tableName="event_log"/>
-                <columnExists columnName="filter7" tableName="event_log"/>
-                <columnExists columnName="filter8" tableName="event_log"/>
-                <columnExists columnName="filter9" tableName="event_log"/>
-                <columnExists columnName="filter10" tableName="event_log"/>
-            </not>
-        </preConditions>
-        <comment>Adding Province, District and Facility in event_log table</comment>
-        <sql>
-            ALTER TABLE event_log ADD COLUMN filter1 varchar(255);
-            ALTER TABLE event_log ADD COLUMN filter2 varchar(255);
-            ALTER TABLE event_log ADD COLUMN filter3 varchar(255);
-            ALTER TABLE event_log ADD COLUMN filter4 varchar(255);
-            ALTER TABLE event_log ADD COLUMN filter5 varchar(255);
-            ALTER TABLE event_log ADD COLUMN filter6 varchar(255);
-            ALTER TABLE event_log ADD COLUMN filter7 varchar(255);
-            ALTER TABLE event_log ADD COLUMN filter8 varchar(255);
-            ALTER TABLE event_log ADD COLUMN filter9 varchar(255);
-            ALTER TABLE event_log ADD COLUMN filter10 varchar(255);
-        </sql>
-    </changeSet>
 </databaseChangeLog>
