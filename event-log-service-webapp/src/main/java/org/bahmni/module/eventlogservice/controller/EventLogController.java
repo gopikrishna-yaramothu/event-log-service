@@ -40,8 +40,10 @@ public class EventLogController {
         } else {
             EventLog lastReadEventLog = eventLogRepository.findTop1ByUuid(uuid);
             List<EventLog> events = new ArrayList<EventLog>();
-            for(String filter: filterBy) {
-                events.addAll(eventLogRepository.findTop100ByFilterContainsAndIdAfterAndCategoryNotIn(filter, lastReadEventLog.getId(), categoryList));
+            if (null != lastReadEventLog) {
+                for (String filter : filterBy) {
+                    events.addAll(eventLogRepository.findTop100ByFilterContainsAndIdAfterAndCategoryNotIn(filter, lastReadEventLog.getId(), categoryList));
+                }
             }
             response.put("events", events);
             response.put("pendingEventsCount", events.size());
